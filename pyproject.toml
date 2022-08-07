@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scripts"
+version = "0.0.1"
+authors = [
+  { name="fj-one", email="frdjns000@gmail.com" },
+]
+description = "Reusable scripts"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fj-one/scripts"
+"Bug Tracker" = "https://github.com/fj-one/scripts/issues"
+
+[project.scripts]
+wc = "wc:main"
