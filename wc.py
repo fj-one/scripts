@@ -17,11 +17,11 @@ ISADIRECTORY = 1
 PERMISSIONERROR = 2
 
 
-def main(argv=None):
+def main():
     """Run program."""
     parser = ArgumentParser(description=__doc__, formatter_class=RAW)
     parser.add_argument("files", nargs="*", help="file name (or glob pattern)", metavar="FILE")
-    args = parser.parse_args(argv)
+    args = parser.parse_args()
     result = read_files(args.files)
     edit(result)
     return calc_exitcode(result)
