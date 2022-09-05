@@ -8,7 +8,7 @@ of characters delimited by white space.
 import math
 import os.path
 import sys
-from argparse import ArgumentParser, RawDescriptionHelpFormatter as RAW
+from argparse import ArgumentParser, RawDescriptionHelpFormatter as RDHF
 from glob import glob
 
 SUCCESS = 0
@@ -19,7 +19,7 @@ PERMISSIONERROR = 2
 
 def main():
     """Run program."""
-    parser = ArgumentParser(description=__doc__, formatter_class=RAW)
+    parser = ArgumentParser(description=__doc__, formatter_class=RDHF)
     parser.add_argument("files", nargs="*", help="file name (or glob pattern)", metavar="FILE")
     args = parser.parse_args()
     result = read_files(args.files)
