@@ -11,7 +11,8 @@ SINGLECHAR = ".\\testinputs\\singlechar.txt"
 FOX = ".\\testinputs\\fox.txt"
 FOX10 = ".\\testinputs\\fox10.txt"
 
-NLCHAR = 2 if os.name == "nt" else 1  # number of characters per newline
+# number of characters per newline
+NLCHAR = 2 if os.name == "nt" else 1
 
 
 def test_exists():
@@ -69,5 +70,6 @@ def test_fox10():
 
 def parse_output(output):
     """Parse one line of output into line, word, byte count, path name."""
-    lct, wct, bct, path = output.split()  # assumes no space in path
+    # assumed no space in path
+    lct, wct, bct, path = output.split()
     return int(lct), int(wct), int(bct), path
