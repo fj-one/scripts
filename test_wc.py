@@ -73,3 +73,13 @@ def parse_output(output):
     # assumed no space in path
     lct, wct, bct, path = output.split()
     return int(lct), int(wct), int(bct), path
+
+
+if __name__ == "__main__":
+    test_exists()
+    test_usage()
+    test_blank_file()
+    test_single_character()
+    test_fox()
+    test_fox10()
+    print("all tests passed!")
