@@ -1,14 +1,14 @@
-"""Print line, word, and byte count for each file.
+"""Print line, word, and byte counts for each file.
 
-Print newline, word, and byte count for each FILE, and a total line if
+Print newline, word, and byte counts for each FILE, and a total line if
 more than one FILE is specified.  A word is a non-zero-length sequence
-of characters delimited by white space.
+of characters delimited by whitespace.
 """
 
+import argparse
 import math
 import os.path
 import sys
-from argparse import ArgumentParser, RawDescriptionHelpFormatter as RDHF
 from glob import glob
 
 SUCCESS = 0
@@ -19,7 +19,9 @@ PERMISSIONERROR = 2
 
 def main():
     """Run program."""
-    parser = ArgumentParser(description=__doc__, formatter_class=RDHF)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument("files", nargs="*", help="file name (or glob pattern)", metavar="FILE")
     args = parser.parse_args()
     result = read_files(args.files)
@@ -28,7 +30,7 @@ def main():
 
 
 def read_files(pathnames):
-    """Return dict mapping path name to line, word, byte count, status flag."""
+    """Return dict mapping pathname to line, word, byte counts & status flag."""
     result = {}
     for pathname in pathnames:
         if pnames := glob(pathname):
@@ -75,7 +77,7 @@ def edit(result):
 
 
 def calc_totals(result):
-    """Return total line, word, and byte count."""
+    """Return total line, word, and byte counts."""
     totline = totword = totbyte = 0
     for lct, wct, bct, _ in result.values():
         totline += lct
