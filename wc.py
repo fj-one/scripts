@@ -30,7 +30,7 @@ def main():
 
 
 def read_files(pathnames):
-    """Return dict mapping pathname to line, word, byte counts & status flag."""
+    """Return dict mapping pathname to line, word, byte counts, status flag."""
     result = {}
     for pathname in pathnames:
         if pnames := glob(pathname):
