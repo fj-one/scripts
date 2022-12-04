@@ -1,0 +1,29 @@
+      PROGRAM HELLO
+      IMPLICIT NONE
+      REAL A
+      REAL B
+      REAL C
+      A = 1.0
+     !  + 2.0
+      B = 3.0
+     C  + 4.0
+      C = 5.0
+     *  + 6.0
+      PRINT *, A
+      PRINT *, B
+      PRINT *, C
+      PRINT *, 'ESCAPE A''INT POSSIBLE!'
+      PRINT *, "ESCAPE A""INT POSSIBLE!"
+      PRINT *, "ESCAPE A\'INT POSSIBLE!"
+      PRINT *, 'ESCAPE A\"INT POSSIBLE!'
+      PRINT *, 'ESCAPE A''INT POSSIBLE!'
+      PRINT *, "ESCAPE A""INT POSSIBLE!"
+      PRINT *, "ESCAPE A\'INT POSSIBLE!"
+      PRINT *, 'ESCAPE A\"INT POSSIBLE!'
+      PRINT *, "ESCAPE A'INT POSSIBLE!"
+      PRINT *, 'ESCAPE A"INT POSSIBLE!'
+      PRINT *, "ESCAPE A'INT POSSIBLE!"
+      PRINT *, 'ESCAPE A"INT POSSIBLE!'
+      PRINT *, 'ESCAPE A"INT POSSIBLE!'
+      PRINT *, 'ESCAPE A"INT POSSIBLE!'
+      END PROGRAM HELLO
