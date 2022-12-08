@@ -21,11 +21,25 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("infile", type=argparse.FileType("rt"))
     parser.add_argument("outfile", nargs="?", default=sys.stdout, type=argparse.FileType("wt"))
+    parser.add_argument("--qamode", action="store_true")
+    parser.add_argument("--qafile")
     args = parser.parse_args()
     ext = os.path.splitext(args.infile.name)[1].lower()
     decomment = decomment_fixed if ext in FIXED else decomment_free
-    for line in args.infile:
-        args.outfile.write(decomment(line))
+    if args.qamode:
+        qafile = args.qafile or ("qa.f" if ext in FIXED else "qa.f90")
+        with open(qafile, "a") as f:
+            for n, line in enumerate(args.infile, start=1):
+                decommented = decomment(line)
+                if line != decommented:
+                    print(">", f"file: {args.infile.name}, line {n}", file=f)
+                    print("-", line.rstrip(), file=f)
+                    print("+", decommented.rstrip(), file=f)
+                    print("", file=f)
+                args.outfile.write(decommented)
+    else:
+        for line in args.infile:
+            args.outfile.write(decomment(line))
     return exitcode
 
 
